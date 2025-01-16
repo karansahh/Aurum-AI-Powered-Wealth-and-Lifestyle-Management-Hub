@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
+import AuthContext from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+
 
 const HomePage = () => {
+
+  const { authTokens } = useContext(AuthContext); // Get authentication token from context
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (authTokens) {
+      navigate('/dashboard', { replace: true });
+    }
+  }, [authTokens, navigate]);
+  
   return (
-    <div style={{ backgroundColor: "#1D7F32", color: "#fff", minHeight: "100vh", marginTop: "70px"}}>
+    <div style={{ backgroundColor: "#1D7F32", color: "#fff", minHeight: "100vh", marginTop: "85px"}}>
       <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: "#1D7F32" }}>
         <div className="container">
           <a className="navbar-brand" href="#">
@@ -46,7 +58,7 @@ const HomePage = () => {
                   <p className="card-text">
                     Easily register, authenticate, and manage your personal account. Complete your profile, verify your email, and secure your account to get started on your wealth journey.
                   </p>
-                  <Link to="/profile" className="btn btn-success btn-block">Manage Your Account</Link>
+                  <Link to="/register" className="btn btn-success btn-block">Manage Your Account</Link>
                 </div>
               </div>
             </div>
@@ -59,7 +71,7 @@ const HomePage = () => {
                   <p className="card-text">
                     Track and manage your assets, from real estate to stocks and more. Get a total portfolio value summary and monitor individual asset performance in real-time.
                   </p>
-                  <Link to="/assets" className="btn btn-success btn-block">Manage Your Assets</Link>
+                  <Link to="/register" className="btn btn-success btn-block">Manage Your Assets</Link>
                 </div>
               </div>
             </div>
@@ -72,7 +84,7 @@ const HomePage = () => {
                   <p className="card-text">
                     Set, modify, and track your financial goals with built-in progress tracking. Set milestones and deadlines to achieve your wealth objectives.
                   </p>
-                  <Link to="/goals" className="btn btn-success btn-block">Set Your Goals</Link>
+                  <Link to="/register" className="btn btn-success btn-block">Set Your Goals</Link>
                 </div>
               </div>
             </div>
@@ -85,7 +97,7 @@ const HomePage = () => {
                   <p className="card-text">
                     Get AI-driven personalized investment suggestions based on your risk tolerance and financial preferences. Maximize your portfolio growth with smart recommendations.
                   </p>
-                  <Link to="/investments" className="btn btn-success btn-block">Get Investment Suggestions</Link>
+                  <Link to="/register" className="btn btn-success btn-block">Get Investment Suggestions</Link>
                 </div>
               </div>
             </div>
@@ -98,7 +110,7 @@ const HomePage = () => {
                   <p className="card-text">
                     Stay up to date with important updates, from financial transactions to goal progress alerts. Receive timely email and in-app notifications to stay informed.
                   </p>
-                  <Link to="/notifications" className="btn btn-success btn-block">Check Notifications</Link>
+                  <Link to="/register" className="btn btn-success btn-block">Check Notifications</Link>
                 </div>
               </div>
             </div>
@@ -111,7 +123,7 @@ const HomePage = () => {
                   <p className="card-text">
                     Set performance thresholds for your assets and receive alerts if your investments exceed risk limits. Control your financial health with proactive risk management.
                   </p>
-                  <Link to="/risk-control" className="btn btn-success btn-block">Manage Risk</Link>
+                  <Link to="/register" className="btn btn-success btn-block">Manage Risk</Link>
                 </div>
               </div>
             </div>
@@ -124,7 +136,7 @@ const HomePage = () => {
                   <p className="card-text">
                     Visualize your asset performance and track your financial goal progress with detailed charts and reports. Download comprehensive financial reports as PDFs or CSVs.
                   </p>
-                  <Link to="/reports" className="btn btn-success btn-block">View Reports</Link>
+                  <Link to="/register" className="btn btn-success btn-block">View Reports</Link>
                 </div>
               </div>
             </div>
@@ -199,3 +211,5 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+

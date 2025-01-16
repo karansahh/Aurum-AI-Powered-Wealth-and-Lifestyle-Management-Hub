@@ -111,6 +111,9 @@ function Navbar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
+
+              {token === null && (
+                <>
               <li className="nav-item">
                 <Link
                   className="nav-link active"
@@ -120,8 +123,6 @@ function Navbar() {
                   Home
                 </Link>
               </li>
-              {token === null && (
-                <>
                   <li className="nav-item">
                     <Link className="nav-link" to="/login">
                       Login
@@ -136,6 +137,12 @@ function Navbar() {
               )}
               {token !== null && (
                 <>
+                  {/* Suggestions */}
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/dashboard">
+                      Dashboard
+                    </Link>
+                  </li>
                   {/* Profile Dropdown */}
                   <li className="nav-item dropdown">
                     <a

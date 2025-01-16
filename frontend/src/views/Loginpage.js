@@ -38,7 +38,7 @@ function Loginpage() {
               </div>
               <div className="col-md-6 col-lg-7 d-flex align-items-center">
                 <div className="card-body p-4 p-lg-5 text-black">
-                  <form>
+                  <form onSubmit = {handleSubmit}>
                     <div className="d-flex align-items-center mb-3 pb-1">
                       <i
                         className="fas fa-cubes fa-2x me-3"
@@ -58,30 +58,33 @@ function Loginpage() {
                     >
                       Sign into your account
                     </h5>
+                    <label className="form-label" htmlFor="form2Example17">
+                        Email address
+                    </label>
                     <div className="form-outline mb-4">
                       <input
                         type="email"
                         id="form2Example17"
                         className="form-control form-control-lg"
+                        name = "email"
                       />
-                      <label className="form-label" htmlFor="form2Example17">
-                        Email address
-                      </label>
                     </div>
+                    <label className="form-label" htmlFor="form2Example27">
+                        Password
+                    </label>
                     <div className="form-outline mb-4">
                       <input
                         type="password"
                         id="form2Example27"
                         className="form-control form-control-lg"
+                        name = "password"
                       />
-                      <label className="form-label" htmlFor="form2Example27">
-                        Password
-                      </label>
+
                     </div>
                     <div className="pt-1 mb-4">
                       <button
                         className="btn btn-dark btn-lg btn-block"
-                        type="button"
+                        type="submit"
                       >
                         Login
                       </button>
@@ -91,8 +94,8 @@ function Loginpage() {
                     </a>
                     <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
                       Don't have an account?{" "}
-                      <Link to="/login" style={{ color: "#393f81" }}>
-                              Login Now
+                      <Link to="/register" style={{ color: "#393f81" }}>
+                              Register Now
                       </Link>
                     </p>
                     <a href="#!" className="small text-muted">
